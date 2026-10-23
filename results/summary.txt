@@ -1,0 +1,49 @@
+1) AUC by label source (S1 test predictions, each variant counted once)
+   all: n=5916, pathogenic=2590
+   ClinVar: n=2240, pathogenic=1511
+   rule: n=3676, pathogenic=1079
+  group          score    n  n_pathogenic   AUC  AUC_lo  AUC_hi    AP
+    all     DeNovoSeer 5916          2590 0.876   0.866   0.885 0.881
+    all clinical score 5916          2590 0.838   0.827   0.850 0.833
+    all            PM2 5916          2590 0.720   0.708   0.731 0.598
+    all BayesDel_addAF 4799          2444 0.817   0.805   0.830 0.833
+    all  AlphaMissense 4038          1816 0.799   0.785   0.814 0.800
+    all     CADD_phred 4810          2447 0.784   0.770   0.796 0.774
+ClinVar     DeNovoSeer 2240          1511 0.992   0.990   0.994 0.996
+ClinVar clinical score 2240          1511 0.999   0.999   1.000 1.000
+ClinVar            PM2 2240          1511 0.981   0.976   0.986 0.987
+ClinVar BayesDel_addAF 1710          1506 0.993   0.988   0.997 0.999
+ClinVar  AlphaMissense 1192           990 0.988   0.984   0.992 0.998
+ClinVar     CADD_phred 1714          1509 0.957   0.942   0.970 0.993
+   rule     DeNovoSeer 3676          1079 0.697   0.677   0.717 0.550
+   rule clinical score 3676          1079 0.584   0.562   0.608 0.434
+   rule            PM2 3676          1079 0.531   0.513   0.549 0.308
+   rule BayesDel_addAF 3089           938 0.622   0.600   0.644 0.454
+   rule  AlphaMissense 2846           826 0.626   0.603   0.651 0.491
+   rule     CADD_phred 3096           938 0.632   0.610   0.655 0.427
+
+2) ClinVar group, missense only
+   DeNovoSeer: n=1191, AUC=0.976 (0.968-0.983)
+   AlphaMissense: n=1184, AUC=0.988 (0.983-0.992)
+   ClinVar benign that are synonymous: 530/729
+
+3) Rule group, variants scored by all three tools (n=2846, pathogenic=826)
+   DeNovoSeer: AUC=0.698 (0.677-0.721)
+   AlphaMissense: AUC=0.626 (0.600-0.651)
+   CADD_phred: AUC=0.621 (0.598-0.645)
+   DeNovoSeer minus AlphaMissense: 0.073 (0.053-0.092)
+   DeNovoSeer minus CADD_phred: 0.076 (0.055-0.097)
+
+4) Synonymous variants
+   rule-pathogenic synonymous in test: 140
+   called pathogenic (p >= 0.5): 36 (25.7%)
+   benign synonymous called pathogenic: 6.0%
+   called ones with no SpliceAI delta score: 32
+
+5) PS2 / PM6 in the released clinical evidence file
+   variants: 70415
+   PS2 value counts: {1: 70415}
+   PM6 value counts: {0: 70415}
+
+6) Rule-based pathogenic labels, full Gene4Denovo file
+   labels: 1261; all records share one sample ID: 33
