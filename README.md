@@ -1,5 +1,7 @@
 # DeNovoSeer re-analysis
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23590533.svg)](https://doi.org/10.5281/zenodo.23590533)
+
 Code for the numbers in my letter on DeNovoSeer (Qiu et al., Briefings in Bioinformatics 2026, https://doi.org/10.1093/bib/bbag428).
 
 I did not retrain anything. The script takes the variant-level test predictions the authors published (Supplementary File S1), joins them to the annotation files in their GitHub repository, and splits performance by where each label came from. In their study a label comes either from ClinVar or from a rule applied to Gene4Denovo observations. Those two groups behave very differently, and the pooled AUC hides that.
@@ -47,6 +49,10 @@ Bootstrap intervals use a fixed seed (2026) and 2,000 resamples. Your intervals 
 Points 5 and 6 come from the full released Gene4Denovo files, not just the test set.
 
 A repeated sample ID does not prove a label is wrong. Some of these variants may have other independent observations that were not recorded in the file. I report them because the labelling rule asks for two studies or two affected people, and these rows make it hard to tell which applies.
+
+## Citation
+
+Dolu KO. DeNovoSeer re-analysis code (v1.0). Zenodo; 2026. https://doi.org/10.5281/zenodo.23590533
 
 ## License
 
